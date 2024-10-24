@@ -1,3 +1,27 @@
+from pathlib import Path
+
+
+# List of folders which should exist for data i/o
+folders = [
+    'source_files'  # For saved web content
+    ,'outputs'      # Output location for scraped data files
+]
+
+
+# Verifying required folders exist and creating them if they are missing
+for folder in folders:
+    directory = Path(folder)
+    # Check if the directory exists
+    if not directory.exists():
+        # Create the directory
+        directory.mkdir(parents=True)
+        print(f"Directory '{directory}' seems to be missing, creating it.")
+    else:
+        pass
+
+
+# ChatGPT ish below
+
 # from bs4 import BeautifulSoup
 #
 # # Load the HTML file
@@ -12,4 +36,3 @@
 # for link in links:
 #     print(link.get('href'))
 
-# ChatGPT ish ^
